@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: lifetrack
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: LIFETRACK_JWT_SECRET
+        generateValue: true
+      - key: DB_HOST
+        fromDatabase: { name: lifetrack-db, property: host }
+      - key: DB_PORT
+        fromDatabase: { name: lifetrack-db, property: port }
+      - key: DB_NAME
+        fromDatabase: { name: lifetrack-db, property: database }
+      - key: DATABASE_USERNAME
+        fromDatabase: { name: lifetrack-db, property: user }
+      - key: DATABASE_PASSWORD
+        fromDatabase: { name: lifetrack-db, property: password }
+
+databases:
+  - name: lifetrack-db
+    plan: free
+    databaseName: lifetrack
