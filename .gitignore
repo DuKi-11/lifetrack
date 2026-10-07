@@ -1,0 +1,16 @@
+# Backend
+backend/target/
+backend/data/
+backend/src/main/resources/static/
+*.class
+.idea/
+*.iml
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+backend/backups/
